@@ -10,5 +10,5 @@ ports:
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
-  - init: mkdir -p /home/gitpod/bin && curl -Ls https://git.io/sbt > ~/bin/sbt && chmod 0755 ~/bin/sbt && sudo apt-get install openjdk-8-jdk && sudo update-java-alternatives -s java-1.8.0-openjdk-amd64 && grep -qxF 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64' /home/gitpod/.bashrc || echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64' >> /home/gitpod/.bashrc
+  - init: mkdir -p /home/gitpod/bin && curl -Ls https://git.io/sbt > ~/bin/sbt && chmod 0755 ~/bin/sbt && sudo apt-get install openjdk-8-jdk && sudo update-java-alternatives -s java-1.8.0-openjdk-amd64 && grep -qxF 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64' /home/gitpod/.bashrc || echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64\nPATH=~/bin:$PATH' >> /home/gitpod/.bashrc
     command: source ~/.bashrc
