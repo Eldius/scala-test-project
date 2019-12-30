@@ -1,7 +1,11 @@
 FROM gitpod/workspace-full
 
 USER root
-# Install custom tools, runtime, etc.
+
+RUN sudo wget https://git.io/sbt -O /usr/bin/sbt && \
+  chmod 0755 /usr/bin/sbt && \
+  echo PATH=~/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:\$PATH >> /home/gitpod/.bashrc
+
 RUN sudo apt-get update \
   && sudo apt-get install -y \
     openjdk-8-jdk \
@@ -11,8 +15,5 @@ RUN sudo apt-get update \
 
 
 USER gitpod
-RUN mkdir -p /home/gitpod/bin && curl -Ls https://git.io/sbt > ~/bin/sbt && chmod 0755 ~/bin/sbt && \
-  echo PATH=~/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64:\$PATH >> /home/gitpod/.bashrc && \
-  rm -rf /tmp/*
 
 USER root
