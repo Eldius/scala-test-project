@@ -12,7 +12,7 @@ RUN sudo apt-get update \
 
 USER gitpod
 RUN mkdir -p /home/gitpod/bin && curl -Ls https://git.io/sbt > ~/bin/sbt && chmod 0755 ~/bin/sbt && \
-  echo PATH=~/bin:\$PATH >> /home/gitpod/.bashrc && \
+  echo PATH=~/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64:\$PATH >> /home/gitpod/.bashrc && \
   rm -rf /tmp/*
 
 USER root
